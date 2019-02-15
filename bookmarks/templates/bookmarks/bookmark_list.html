@@ -1,0 +1,19 @@
+{% extends 'bookmarks/base.html' %}
+
+
+{% block content %}
+
+    <ul class="list-group">
+        {% for bookmark in object_list %}
+            <div class="list-group-item">
+                <h1>{{ bookmark.title }}</h1>
+                <p>{{ bookmark.descption }}</p>
+                <a href="{{ bookmark.url }}" target="_blank"><p>{{ bookmark.url }}</p></a>
+                {% for tag in bookmark.tags.all %}
+                    <p>{{ tag }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
