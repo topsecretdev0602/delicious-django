@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from bookmarks.views import BookmarkList
+from bookmarks.views import bookmark_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', BookmarkList.as_view(), name='bookmarks'),
+    path('', bookmark_list),
 ]
