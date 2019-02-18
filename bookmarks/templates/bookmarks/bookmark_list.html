@@ -1,38 +1,11 @@
 {% extends 'bookmarks/base.html' %}
 
-
 {% block content %}
-<div class="container fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <nav class="navbar navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Bookmarks</a>
-                <button class="btn btn-success ml-auto">Add Bookmark</button>
-            </nav>
-        </div>
-    </div>
-    <div class="row no-gutters">
-        <div class="col-md-3">
-            <div class="border-right bg-dark h-100" id="sidebar">
-                <div class="sidebar-heading text-white"></div>
-                <div class="list-group list-group-flush bg-dark">
-                    {% for tag in tags %}
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark ">
-                            <a href="#" class="bg-dark text-white">{{ tag }}</a>
-                            <span class="badge badge-primary badge-pill">{{ tag.num_times }}</span>
-                        </li>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <ul class="list-group h-100">
-                {% for bookmark in bookmarks %}
-                    {% include 'bookmarks/_partials/bookmark.html' %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</div>
+
+<ul class="list-group h-100">
+    {% for bookmark in object_list %}
+        {% include 'bookmarks/_partials/bookmark.html' %}
+    {% endfor %}
+</ul>
 
 {% endblock %}

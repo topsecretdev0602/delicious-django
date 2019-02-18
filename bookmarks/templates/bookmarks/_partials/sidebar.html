@@ -1,0 +1,13 @@
+{% load taggit_templatetags2_tags %}
+{% get_taglist as tags for 'bookmarks.Bookmark' %}
+<div class="border-right bg-dark h-100" id="sidebar">
+        <div class="sidebar-heading text-white"></div>
+        <div class="list-group list-group-flush bg-dark">
+            {% for tag in tags %}
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark ">
+                    <a href="#" class="bg-dark text-white">{{ tag }}</a>
+                    <span class="badge badge-dark badge-pill">{{ tag.num_times }}</span>
+                </li>
+            {% endfor %}
+        </div>
+    </div>

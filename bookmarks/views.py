@@ -1,15 +1,9 @@
 from django.shortcuts import render
-
+from django.views import generic
 
 from bookmarks.models import Bookmark
-from taggit.models import Tag
 
 
-def bookmark_list(request):
-    bookmarks = Bookmark.objects.all()
-    tags = Tag.objects.all()
-    context = {
-        'bookmarks': bookmarks,
-        'tags': tags
-    }
-    return render(request, 'bookmarks/bookmark_list.html', context)
+class BookmarkList(generic.ListView):
+    template_name = 'bookmarks/bookmark_list.html'
+    queryset = Bookmark.objects.all()
