@@ -13,7 +13,7 @@
         <ul class="list-inline">
             Tags:
             {% for tag in bookmark.tags.all %}
-                <li class="list-inline-item"><a href="/{{ tag }}">{{ tag }}</a></li>
+                <li class="list-inline-item"><a href="{% url 'bookmarks_by_tag' %}?tag={{ tag }}">{{ tag }}</a></li>
             {% endfor %}
         </ul>
     </div>
