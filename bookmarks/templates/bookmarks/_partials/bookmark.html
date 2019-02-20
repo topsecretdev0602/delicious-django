@@ -1,17 +1,19 @@
 <div class="card">
     <div class="card-header bg-primary">
         <a href="{{ bookmark.url }}" target="_blank" class="card-link text-white">{{ bookmark.title }}</a>
+        <!-- Edit and dlete bookmarks-->
         <div class="icons float-lg-right float-md-right">
-            <a href="#" target="_blank"><i class="fa fa-pencil fa-1x text-white"></i></a>
-            <a href="#" target="_blank"><i class="fa fa-times fa-1x text-white"></i></a>
+            <a href="{{ bookmark.get_edit_url }}"><i class="fa fa-pencil fa-1x text-white"></i></a>
+            <a href="{{ bookmark.get_delete_url }}"><i class="fa fa-times fa-1x text-white"></i></a>
         </div>
     </div>
     <div class="card-body">
         <p class="card-text">{{ bookmark.description }}</p>
+        <!-- Tags for each bookmark-->
         <ul class="list-inline">
             Tags:
             {% for tag in bookmark.tags.all %}
-                <li class="list-inline-item"><a href="#" target="_blank">{{ tag }}</a></li>
+                <li class="list-inline-item"><a href="/{{ tag }}">{{ tag }}</a></li>
             {% endfor %}
         </ul>
     </div>
